@@ -18,16 +18,21 @@ function DefaultInput({type, id, name, maxCharacters, value, ...props}: IDefault
       value={ value }
       maxLength={ maxCharacters }
       className="px-2 w-full h-12 rounded-md
-      border-2 border-black 
+      border-2 border-transparent 
+      bg-gray-200
       outline-none
-      pt-2
+      font-typoldBold tracking-tight
+      pt-3
       placeholder-shown:uppercase
       placeholder-shown:bg-gray-200
       placeholder-shown:border-gray-200
       placeholder-shown:tracking-tighter
-      placeholder-shown:text-sm
+      placeholder-shown:text-xs
       placeholder-shown:pt-0
-      placeholder-shown:font-typoldBold"
+      placeholder-shown:font-typoldBold
+      focus:border-2
+      focus:border-black
+      focus:bg-white"
       {...props}
       />
     </div>

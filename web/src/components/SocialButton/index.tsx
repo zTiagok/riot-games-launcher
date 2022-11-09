@@ -1,18 +1,18 @@
 import React from 'react'
 
 interface ISocialButton extends React.HTMLAttributes<HTMLButtonElement>{
-
+  bgColor: string,
+  imageUrl: string,
 }
 
-function SocialButton({...props}: ISocialButton) {
+function SocialButton({bgColor, imageUrl, ...props}: ISocialButton) {
   return (
-    <div>
-      <button
-      {...props}
-      >
-        
-      </button>
-    </div>
+    <button
+    className={`rounded-md w-28 h-10 flex items-center justify-center ${bgColor}`}
+    {...props}
+    >
+      <img src={imageUrl} alt={imageUrl} width={25} />
+    </button>
   )
 }
 
