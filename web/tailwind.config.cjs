@@ -11,6 +11,7 @@ module.exports = {
       },
       backgroundImage: {
         loginSplash: "url('./src/assets/images/login-splash.jpg')",
+        registerSplash: "url('./src/assets/images/register-splash.jpg')"
       },
       boxShadow: {
         app: '0 0 20px rgba(0, 0, 0, .5)'
