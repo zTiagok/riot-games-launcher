@@ -8,14 +8,16 @@ import iFacebook from '../../assets/images/facebook.png';
 import iApple from '../../assets/images/apple.png';
 import iLoginArrow from '../../assets/images/login-arrow.png';
 import iLoginArrowDisabled from '../../assets/images/login-arrowD.png';
-import iSplashArt from '../../assets/images/login-splash.jpg';
+import iShowPassword from '../../assets/images/password-show.png'
+import iHidePassword from '../../assets/images/password-hide.png'
 
 function Login() {
   const [usernameState, setUsernameState] = useState('')
   const [passwordState, setPasswordState] = useState('')
+  const [passwordInputState, setPasswordInputState] = useState('password')
 
   const loginButtonHTML = () => {
-    if (usernameState && passwordState) {
+    if (usernameState.length >= 6 && passwordState.length >= 8) {
       return (
         <button className='flex justify-center items-center bg-red-500 w-20 h-20 rounded-3xl'
         type='submit'
@@ -35,8 +37,24 @@ function Login() {
     }
   }
 
+  const passwordHideShow = () => {
+    if (passwordInputState === 'password') {
+      return (
+        <img className='relative -mt-12 left-[280px] top-[60px] w-6 h-6' src={iShowPassword}
+        onClick={() => setPasswordInputState('text')} />
+      )
+    }
+
+    if (passwordInputState === 'text') {
+      return (
+        <img className='relative -mt-12 left-[280px] top-[60.2px] w-6 h-6' src={iHidePassword}
+        onClick={() => setPasswordInputState('password')} />
+      )
+    }
+  };
+
   return (
-    <div className='flex justify-center shadow-2xl h-full'>
+    <div className='flex justify-center h-full'>
       <div className='flex flex-col justify-around items-center  w-1/3'>
         <img src={ imageLogo } alt='Riot Launcher' className='w-44 -mt-6' />
         <h1 className='font-typoldBold text-3xl -mt-5 tracking-tighter'> Sign In </h1>
@@ -48,25 +66,32 @@ function Login() {
               text-gray-400 text-xs relative top-[22px] left-2.5'> 
                 Username
               </label> }
-              <br />
+              <br/>
               <DefaultInput type='text' id='inputUsername' name='inputUsername'
               placeholder='Username'
               value={ usernameState }
               onChange={ (e) => setUsernameState((e.target as HTMLInputElement).value)}
-              maxCharacters={ 25 }/>
+              maxCharacters={ 25 }
+              minCharacters={ 6 }/>
             </div>
             <div>
-              {passwordState && <label htmlFor='inputPassword'
-              className='tracking-tight uppercase font-typoldBold
-              text-gray-400 text-xs relative top-[22px] left-2.5'> 
-                Password
-              </label> }
+              {passwordState &&
+              <>
+                <label htmlFor='inputPassword'
+                className='tracking-tight uppercase font-typoldBold
+                text-gray-400 text-xs relative top-[22px] left-2.5'> 
+                  Password
+                </label> 
+                {passwordHideShow()}
+              </> 
+              }
               <br />
-              <DefaultInput type='password' id='inputPassword' name='inputPassword'
+              <DefaultInput type={passwordInputState} id='inputPassword' name='inputPassword'
               placeholder='Password'
               value={ passwordState }
               onChange={ (e) => setPasswordState((e.target as HTMLInputElement).value)}
-              maxCharacters={ 40 }/>
+              maxCharacters={ 25 }
+              minCharacters={ 8 }/>
             </div>
           </form>
           <div className='flex justify-center gap-4 mb-2'>
@@ -82,10 +107,11 @@ function Login() {
           </div>
         </div>
         {loginButtonHTML()}
-        <nav className='flex flex-col items-center text-xs uppercase font-typoldBold tracking-tight text-gray-400'>
+        <nav className='flex flex-col justify-evenly h-20 w-full items-center text-xs uppercase font-typoldBold tracking-tight text-gray-400'>
           <a href="/wip"> Can't sign in? </a>
-          <a href="/register"> Create account </a>
+          <a href="/signup"> Create account </a>
           <a href='https://www.linkedin.com/in/ztiagok/'> Visit my LinkedIn </a>
+          <span className='self-end mr-2 -mb-8'> v1.0 </span>
         </nav>
       </div>
 

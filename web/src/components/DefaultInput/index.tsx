@@ -5,10 +5,11 @@ interface IDefaultInput extends React.HTMLAttributes<HTMLInputElement> {
   id: string,
   name: string,
   maxCharacters: number,
+  minCharacters: 6 | 8
   value?: any
 }
 
-function DefaultInput({type, id, name, maxCharacters, value, ...props}: IDefaultInput) {
+function DefaultInput({type, id, name, maxCharacters, minCharacters, value, ...props}: IDefaultInput) {
   return (
     <div>
       <input
@@ -16,7 +17,9 @@ function DefaultInput({type, id, name, maxCharacters, value, ...props}: IDefault
       id={ id }
       name={ name }
       value={ value }
+      autoComplete='off'
       maxLength={ maxCharacters }
+      minLength={ minCharacters }
       className="px-2 w-full h-12 rounded-md
       border-2 border-transparent 
       bg-gray-200
