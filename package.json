@@ -1,0 +1,28 @@
+{
+  "name": "riot-launcher",
+  "version": "1.1",
+  "description": "A one repo Riot Games launcher replica",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zTiagok/riot-launcher.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zTiagok/riot-launcher/issues"
+  },
+  "homepage": "https://github.com/zTiagok/riot-launcher#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^2.0.20",
+    "sequelize": "^6.25.5"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.2.2"
+  }
+}

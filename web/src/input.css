@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Typold Regular';
+  src: url('../src/assets/fonts/The Northern Block Ltd - Typold Regular.woff');
+}
+@font-face {
+  font-family: 'Typold Thin';
+  src: url('../src/assets/fonts/The Northern Block Ltd - Typold Thin.woff');
+}
+@font-face {
+  font-family: 'Typold Bold';
+  src: url('../src/assets/fonts/The Northern Block Ltd - Typold Bold.woff');
+}
+@font-face {
+  font-family: 'Typold Medium';
+  src: url('../src/assets/fonts/The Northern Block Ltd - Typold Medium.woff');
+}
